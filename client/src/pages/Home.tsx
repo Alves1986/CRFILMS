@@ -13,7 +13,6 @@ import {
   MessageCircle,
   MoveUpRight,
   ShieldCheck,
-  Sparkles,
   Sun,
 } from "lucide-react";
 
@@ -25,21 +24,22 @@ const assets = {
   hero: "/manus-storage/cr-films-hero-automotivo_5fec1d4b.jpg",
   ppf: "/manus-storage/cr-films-ppf-macro_0bb47cb6.jpg",
   arquitetura: "/manus-storage/cr-films-arquitetura_034c70f6.jpg",
-  detalhamento: "/manus-storage/cr-films-detalhamento_499c5001.jpg",
+  maquinas: "/manus-storage/cr-films-maquinas_cc35b2d3.jpg",
 };
 
 const services = [
   { number: "01", title: "Películas automotivas", description: "Conforto térmico, privacidade e um visual que acompanha o seu carro.", icon: Sun },
   { number: "02", title: "PPF proteção de pintura", description: "Uma camada discreta para cuidar da presença e dos detalhes da pintura.", icon: ShieldCheck },
   { number: "03", title: "Residencial e comercial", description: "Controle de luz e conforto para fachadas, vidros e ambientes.", icon: Crosshair },
-  { number: "04", title: "Detalhamento automotivo", description: "Acabamento cuidadoso para devolver profundidade e presença a cada superfície.", icon: Sparkles },
-  { number: "05", title: "Envelopamento", description: "Personalização e recorte com atenção às linhas, proporções e acabamento final.", icon: MoveUpRight },
+  { number: "04", title: "Máquinas agrícolas", description: "Películas de vidro para mais conforto e proteção durante a operação.", icon: MoveUpRight },
+  { number: "05", title: "Máquinas florestais", description: "Aplicações para cabines que trabalham sob sol, calor e uso intenso.", icon: MoveUpRight },
 ];
 
 function Brand() {
   return (
     <a className="brand brand--official site-brand" href="#inicio" aria-label="CR Films — Películas de Controle Solar">
       <img src={assets.logo} alt="Logo oficial CR Films — Películas de Controle Solar" />
+      <span className="site-brand__spec" aria-hidden="true"><b>CR FILMS</b><small>CONTROLE SOLAR</small></span>
     </a>
   );
 }
@@ -72,9 +72,9 @@ export default function Home() {
         <section className="site-hero" id="inicio">
           <div className="site-hero__rail" aria-hidden="true"><span>01</span><i /><span>05</span></div>
           <div className="site-hero__copy">
-            <p className="eyebrow">PELÍCULAS · PPF · DETALHAMENTO · ENVELOPAMENTO</p>
+            <p className="eyebrow">PELÍCULAS DE VIDRO · PPF · VEÍCULOS · MÁQUINAS</p>
             <h1>O <em>sol</em> entra.<br />O desconforto<br />não precisa.</h1>
-            <p className="site-hero__intro">Proteção solar, estética e acabamento para quem vê cuidado nos detalhes — do seu carro ao seu ambiente.</p>
+            <p className="site-hero__intro">Películas de vidro e PPF para quem procura proteção solar, conforto e presença — do seu carro ao seu ambiente ou máquina.</p>
             <div className="site-hero__actions">
               <QuoteButton label="Falar com especialista" />
               <a href="#solucoes" className="site-text-link">Conheça as soluções <ArrowDownRight size={17} /></a>
@@ -136,7 +136,7 @@ export default function Home() {
         </section>
 
         <section className="site-work-grid" aria-label="Frentes de aplicação da CR Films">
-          <article className="site-work-card site-work-card--detail"><img src={assets.detalhamento} alt="Detalhamento automotivo em processo" /><div><p>DETALHAMENTO AUTOMOTIVO</p><span>Acabamento que volta a aparecer em cada detalhe.</span></div></article>
+          <article className="site-work-card site-work-card--machines"><img src={assets.maquinas} alt="Máquinas agrícolas e florestais com cabine envidraçada" /><div><p>MÁQUINAS AGRÍCOLAS E FLORESTAIS</p><span>Películas para cabines que pedem conforto e proteção durante a operação.</span></div></article>
           <article className="site-work-card site-work-card--ppf"><img src={assets.ppf} alt="Acabamento de película de proteção em superfície automotiva" /><div><p>PPF · PELÍCULAS · PROTEÇÃO</p><span>Camadas pensadas para preservar a presença do seu carro.</span></div></article>
           <article className="site-work-card site-work-card--contact" id="contato">
             <p className="eyebrow">PRÓXIMO PASSO</p>

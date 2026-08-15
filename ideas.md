@@ -47,13 +47,13 @@ Entradas utilizam opacidade e deslocamento horizontal de 12–20 px, em cascata 
 
 ## Sistema tipográfico
 
-- **Destaques:** `Barlow Condensed`, em caixa alta, pesos 600–800 e rastreio curto; traz tensão vertical e linguagem de performance.
+- **Destaques:** `Roboto Condensed`, em caixa alta, pesos 600–800 e rastreio curto; traz uma voz de grotesca de engenharia, precisa e controlada.
 - **Leitura e interfaces:** `Manrope`, pesos 400–700, com numerais tabulares quando houver medidas ou etapas.
 - **Hierarquia:** títulos assumem escalas largas e quebradas em linhas deliberadas; textos de apoio ficam compactos, com largura máxima de leitura controlada.
 
 ## Essência da marca
 
-**Posicionamento:** proteção solar e acabamento profissional para quem quer elevar a presença, o conforto e o cuidado do carro ou ambiente em Telêmaco Borba.  
+**Posicionamento:** películas de vidro e PPF para veículos, ambientes e máquinas que precisam de conforto, proteção solar e presença em Telêmaco Borba.  
 **Personalidade:** precisa, segura, refinada.
 
 ## Voz da marca
@@ -75,7 +75,7 @@ O símbolo é formado por **quatro planos inclinados** que sugerem uma película
 ## Arquitetura preliminar do site
 
 1. Hero com proposta de valor, localização e orçamento imediato.
-2. Seleção de solução: Automotivo, PPF, Residencial & Comercial, Detalhamento.
+2. Seleção de solução: Películas automotivas, PPF, Residencial & Comercial, Máquinas Agrícolas e Máquinas Florestais.
 3. Benefícios tangíveis: proteção solar, privacidade, conforto térmico e acabamento.
 4. Processo de atendimento em três passos.
 5. Portfólio visual por contexto de aplicação.
@@ -87,3 +87,6 @@ O símbolo é formado por **quatro planos inclinados** que sugerem uma película
 - O ambiente dominante é **Grafite de Cabine**, com imagens reflexivas de automóveis, vidro e aplicação. Momentos claros de arquitetura permanecem como contraste pontual, sempre enquadrados por trilhos, recortes de película ou marcadores numéricos.
 - O motivo de **película aplicada** aparece como recorte angular, janela interna, régua de processo ou faixa de especificação em todas as páginas finais.
 - A tela inicial desta etapa permanece assumidamente interna, destinada à aprovação das direções. No site público final, não haverá linguagem de proposta, opções ou mockup.
+- A tipografia de display usa uma **grotesca condensada de engenharia**, limpa e objetiva; não se aproxima de texturas grunge, de competição ou de cartaz esportivo.
+- Cada seção principal recebe pelo menos um dispositivo de **película aplicada**: janela angular, moldura em camada, faixa de especificação, marcação numérica ou linha de chamada.
+- Os quatro planos inclinados da logo oficial orientam pequenos recortes, filetes e molduras da interface, tornando a geometria da marca recorrente sem redesenhar o símbolo original.

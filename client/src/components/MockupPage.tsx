@@ -13,7 +13,6 @@ import {
   MapPin,
   MessageCircle,
   ShieldCheck,
-  Sparkles,
   Sun,
 } from "lucide-react";
 
@@ -30,7 +29,7 @@ const assets = {
   hero: "/manus-storage/cr-films-hero-automotivo_5fec1d4b.jpg",
   ppf: "/manus-storage/cr-films-ppf-macro_0bb47cb6.jpg",
   arquitetura: "/manus-storage/cr-films-arquitetura_034c70f6.jpg",
-  detalhamento: "/manus-storage/cr-films-detalhamento_499c5001.jpg",
+  maquinas: "/manus-storage/cr-films-maquinas_cc35b2d3.jpg",
   logo: "/manus-storage/cr-films-logo-restaurada_437e9c1b.png",
 };
 
@@ -55,9 +54,9 @@ const serviceCards = [
   },
   {
     label: "04",
-    title: "Detalhamento\nautomotivo",
-    detail: "Acabamento preciso para devolver presença a cada superfície.",
-    icon: Sparkles,
+    title: "Máquinas agrícolas\ne florestais",
+    detail: "Películas para cabines que trabalham sob sol, calor e uso intenso.",
+    icon: Crosshair,
   },
 ];
 
@@ -109,7 +108,7 @@ function ImpactoMockup() {
           <div className="impact-hero__copy">
             <p className="eyebrow">ESTÚDIO DE PROTEÇÃO E ACABAMENTO</p>
             <h1>O <em>sol</em> entra.<br />O desconforto<br />não precisa.</h1>
-            <p className="impact-hero__intro">Películas, PPF e detalhamento para quem vê cuidado nos detalhes — do seu carro ao seu ambiente.</p>
+            <p className="impact-hero__intro">Películas de vidro e PPF para quem procura proteção e conforto — do seu carro ao seu ambiente ou máquina.</p>
             <div className="impact-hero__actions">
               <WhatsAppButton />
               <a href="#servicos" className="text-link">Conheça as soluções <ArrowDownRight size={17} /></a>
@@ -180,7 +179,7 @@ function SolucoesMockup() {
         <section className="solution-path">
           <div className="solution-path__label"><span>ESCOLHA SEU CONTEXTO</span><i /></div>
           <a href={WHATSAPP} target="_blank" rel="noreferrer" className="solution-path__row">
-            <span className="path-number">01</span><div><h2>Automotivo</h2><p>Películas, PPF e detalhamento com atenção total à presença do seu carro.</p></div><ArrowUpRight size={28} />
+            <span className="path-number">01</span><div><h2>Automotivo</h2><p>Películas de vidro e PPF com atenção total à proteção e à presença do seu carro.</p></div><ArrowUpRight size={28} />
           </a>
           <a href={WHATSAPP} target="_blank" rel="noreferrer" className="solution-path__row solution-path__row--dark">
             <span className="path-number">02</span><div><h2>Residencial & comercial</h2><p>Controle de luz e conforto para fachadas, interiores e rotina.</p></div><ArrowUpRight size={28} />
@@ -210,7 +209,7 @@ function ProcessoMockup() {
       <TopBar />
       <main>
         <section className="process-hero">
-          <div className="process-hero__image"><img src={assets.detalhamento} alt="Detalhamento de pintura automotiva com politriz" /></div>
+          <div className="process-hero__image"><img src={assets.maquinas} alt="Cabines de máquinas agrícolas e florestais com película de vidro" /></div>
           <div className="process-hero__word"><span>SEU</span><strong>ACABAMENTO</strong><em>COMEÇA AQUI.</em></div>
           <div className="process-hero__copy">
             <p className="eyebrow">PRECISÃO QUE SE VÊ DE PERTO</p>

@@ -17,3 +17,10 @@
 - [x] Integrar CTAs de orçamento ao WhatsApp e o perfil oficial do Instagram.
 - [x] Validar a experiência em desktop e mobile, incluindo tipagem e compilação de produção.
 - [ ] Registrar a versão final do projeto para entrega.
+
+# Correção de escopo dos serviços
+
+- [x] Remover todas as menções a detalhamento automotivo e envelopamento.
+- [x] Incluir películas para máquinas agrícolas e máquinas florestais como frentes de atendimento.
+- [x] Ajustar os textos de serviços, aplicações e orçamento para películas de vidros e PPF.
+- [x] Revalidar desktop, mobile e compilação após as correções.
