@@ -1,25 +1,165 @@
-import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
-import { Streamdown } from 'streamdown';
-
 /**
- * All content in this page are only for example, replace with your own feature implementation
- * When building pages, remember your instructions in Frontend Best Practices, Design Guide and Common Pitfalls
+ * ESTILO CR FILMS — Impacto Visual / Precisão em Movimento
+ * Página institucional: grafite técnico, contraste editorial e Azul Polar usado como sinal de conversão.
+ * Cada seção parte de uma composição assimétrica e conduz ao orçamento no WhatsApp.
  */
-export default function Home() {
-  // If theme is switchable in App.tsx, we can implement theme toggling like this:
-  // const { theme, toggleTheme } = useTheme();
+import {
+  ArrowDownRight,
+  ArrowUpRight,
+  Check,
+  ChevronDown,
+  Crosshair,
+  MapPin,
+  MessageCircle,
+  MoveUpRight,
+  ShieldCheck,
+  Sparkles,
+  Sun,
+} from "lucide-react";
 
+const WHATSAPP = "https://wa.me/5542991489798?text=Ol%C3%A1%2C%20quero%20um%20or%C3%A7amento%20para%20a%20CR%20Films.";
+const INSTAGRAM = "https://www.instagram.com/crfilmsoficial_/";
+
+const assets = {
+  logo: "/manus-storage/cr-films-logo-restaurada_437e9c1b.png",
+  hero: "/manus-storage/cr-films-hero-automotivo_5fec1d4b.jpg",
+  ppf: "/manus-storage/cr-films-ppf-macro_0bb47cb6.jpg",
+  arquitetura: "/manus-storage/cr-films-arquitetura_034c70f6.jpg",
+  detalhamento: "/manus-storage/cr-films-detalhamento_499c5001.jpg",
+};
+
+const services = [
+  { number: "01", title: "Películas automotivas", description: "Conforto térmico, privacidade e um visual que acompanha o seu carro.", icon: Sun },
+  { number: "02", title: "PPF proteção de pintura", description: "Uma camada discreta para cuidar da presença e dos detalhes da pintura.", icon: ShieldCheck },
+  { number: "03", title: "Residencial e comercial", description: "Controle de luz e conforto para fachadas, vidros e ambientes.", icon: Crosshair },
+  { number: "04", title: "Detalhamento automotivo", description: "Acabamento cuidadoso para devolver profundidade e presença a cada superfície.", icon: Sparkles },
+  { number: "05", title: "Envelopamento", description: "Personalização e recorte com atenção às linhas, proporções e acabamento final.", icon: MoveUpRight },
+];
+
+function Brand() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <a className="brand brand--official site-brand" href="#inicio" aria-label="CR Films — Películas de Controle Solar">
+      <img src={assets.logo} alt="Logo oficial CR Films — Películas de Controle Solar" />
+    </a>
+  );
+}
+
+function QuoteButton({ label = "Pedir orçamento", subtle = false }: { label?: string; subtle?: boolean }) {
+  return (
+    <a className={`site-quote ${subtle ? "site-quote--subtle" : ""}`} href={WHATSAPP} target="_blank" rel="noreferrer">
+      <MessageCircle size={17} />
+      <span>{label}</span>
+      <ArrowUpRight size={17} />
+    </a>
+  );
+}
+
+export default function Home() {
+  return (
+    <div className="site-shell">
+      <header className="site-nav">
+        <Brand />
+        <nav aria-label="Navegação principal">
+          <a href="#solucoes">Soluções</a>
+          <a href="#metodo">Método</a>
+          <a href="#trabalhos">Aplicações</a>
+          <a href="#contato">Contato</a>
+        </nav>
+        <a href={WHATSAPP} target="_blank" rel="noreferrer" className="site-nav__quote">Orçamento <ArrowUpRight size={15} /></a>
+      </header>
+
       <main>
-        {/* Example: lucide-react for icons */}
-        <Loader2 className="animate-spin" />
-        Example Page
-        {/* Example: Streamdown for markdown rendering */}
-        <Streamdown>Any **markdown** content</Streamdown>
-        <Button variant="default">Example Button</Button>
+        <section className="site-hero" id="inicio">
+          <div className="site-hero__rail" aria-hidden="true"><span>01</span><i /><span>05</span></div>
+          <div className="site-hero__copy">
+            <p className="eyebrow">PELÍCULAS · PPF · DETALHAMENTO · ENVELOPAMENTO</p>
+            <h1>O <em>sol</em> entra.<br />O desconforto<br />não precisa.</h1>
+            <p className="site-hero__intro">Proteção solar, estética e acabamento para quem vê cuidado nos detalhes — do seu carro ao seu ambiente.</p>
+            <div className="site-hero__actions">
+              <QuoteButton label="Falar com especialista" />
+              <a href="#solucoes" className="site-text-link">Conheça as soluções <ArrowDownRight size={17} /></a>
+            </div>
+          </div>
+          <div className="site-hero__media">
+            <img src={assets.hero} alt="SUV premium com película automotiva escura em estúdio" />
+            <div className="site-hero__overlay" />
+            <div className="site-hero__caption"><span>Películas automotivas</span><b>PROTEÇÃO · ESTILO · CONFORTO</b></div>
+            <div className="site-hero__stamp"><Crosshair size={17} /><span>ACABAMENTO<br />SOB MEDIDA</span></div>
+          </div>
+        </section>
+
+        <div className="site-spec"><span />O resultado aparece antes de qualquer explicação<span /></div>
+
+        <section className="site-services" id="solucoes">
+          <div className="site-section-heading">
+            <p className="eyebrow">SOLUÇÕES CR FILMS</p>
+            <h2>Proteção que acompanha<br /><em>o seu ritmo.</em></h2>
+            <p>Escolha uma frente ou conte o que você quer transformar. A indicação é feita para o seu veículo ou ambiente.</p>
+          </div>
+          <div className="site-services__grid">
+            {services.map((service) => {
+              const Icon = service.icon;
+              return (
+                <a className="site-service" href={WHATSAPP} target="_blank" rel="noreferrer" key={service.number}>
+                  <div className="site-service__meta"><span>{service.number}</span><Icon size={20} strokeWidth={1.5} /></div>
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                  <ArrowUpRight className="site-service__arrow" size={20} />
+                </a>
+              );
+            })}
+          </div>
+        </section>
+
+        <section className="site-proof" id="metodo">
+          <div className="site-proof__visual"><img src={assets.ppf} alt="Aplicação de PPF em pintura automotiva azul" /><div /></div>
+          <div className="site-proof__body">
+            <p className="eyebrow">O MÉTODO CR FILMS</p>
+            <h2>Menos dúvida.<br /><em>Mais resultado.</em></h2>
+            <p className="site-proof__intro">Cada atendimento começa pelo cenário real: o carro, o vidro, a incidência de luz e o resultado que você procura.</p>
+            <ol>
+              <li><span>01</span><div><b>Entendemos o cenário.</b><p>Você mostra o veículo ou ambiente e explica o que precisa mudar.</p></div></li>
+              <li><span>02</span><div><b>Indicamos a solução certa.</b><p>Uma recomendação clara para equilibrar função, estética e contexto de uso.</p></div></li>
+              <li><span>03</span><div><b>Finalizamos com cuidado.</b><p>Aplicação e acabamento com atenção às linhas, superfícies e detalhes.</p></div></li>
+            </ol>
+          </div>
+        </section>
+
+        <section className="site-architecture" id="trabalhos">
+          <div className="site-architecture__copy">
+            <p className="eyebrow">DO VOLANTE À JANELA</p>
+            <h2>Controle de luz.<br /><em>Presença no ambiente.</em></h2>
+            <p>Películas para projetos residenciais e comerciais que pedem conforto, privacidade e melhor experiência nos espaços de vidro.</p>
+            <a href={WHATSAPP} target="_blank" rel="noreferrer" className="site-text-link">Falar sobre meu ambiente <ArrowUpRight size={17} /></a>
+          </div>
+          <div className="site-architecture__media"><img src={assets.arquitetura} alt="Fachada residencial moderna com grandes superfícies de vidro" /><span>RESIDENCIAL · COMERCIAL</span></div>
+        </section>
+
+        <section className="site-work-grid" aria-label="Frentes de aplicação da CR Films">
+          <article className="site-work-card site-work-card--detail"><img src={assets.detalhamento} alt="Detalhamento automotivo em processo" /><div><p>DETALHAMENTO AUTOMOTIVO</p><span>Acabamento que volta a aparecer em cada detalhe.</span></div></article>
+          <article className="site-work-card site-work-card--ppf"><img src={assets.ppf} alt="Acabamento de película de proteção em superfície automotiva" /><div><p>PPF · PELÍCULAS · PROTEÇÃO</p><span>Camadas pensadas para preservar a presença do seu carro.</span></div></article>
+          <article className="site-work-card site-work-card--contact" id="contato">
+            <p className="eyebrow">PRÓXIMO PASSO</p>
+            <h2>Seu próximo<br /><em>acabamento</em> começa<br />em uma conversa.</h2>
+            <QuoteButton label="Chamar no WhatsApp" subtle />
+          </article>
+        </section>
+
+        <section className="site-contact">
+          <div><p className="eyebrow">ATENDIMENTO LOCAL</p><h2>Telêmaco Borba,<br /><em>Paraná.</em></h2></div>
+          <div className="site-contact__details">
+            <a href={WHATSAPP} target="_blank" rel="noreferrer"><MessageCircle size={18} /><span><b>WhatsApp</b>42 99148-9798</span><ArrowUpRight size={17} /></a>
+            <a href={INSTAGRAM} target="_blank" rel="noreferrer"><MoveUpRight size={18} /><span><b>Instagram</b>@crfilmsoficial_</span><ArrowUpRight size={17} /></a>
+            <span className="site-contact__location"><MapPin size={18} /><span><b>Base de atendimento</b>Telêmaco Borba · PR</span></span>
+          </div>
+        </section>
       </main>
+
+      <footer className="site-footer">
+        <Brand />
+        <p>CR Films · Películas de Controle Solar</p>
+        <a href="#inicio">Voltar ao topo <ChevronDown size={15} /></a>
+      </footer>
     </div>
   );
 }
