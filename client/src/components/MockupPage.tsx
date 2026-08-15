@@ -30,7 +30,7 @@ const assets = {
   ppf: "/manus-storage/cr-films-ppf-macro_0bb47cb6.jpg",
   arquitetura: "/manus-storage/cr-films-arquitetura_034c70f6.jpg",
   maquinas: "/manus-storage/cr-films-maquinas_cc35b2d3.jpg",
-  logo: "/manus-storage/cr-films-logo-restaurada_437e9c1b.png",
+  logo: "/manus-storage/cr-films-mark_c7b6ba86.svg",
 };
 
 const serviceCards = [
@@ -63,7 +63,7 @@ const serviceCards = [
 function Brand({ dark = false }: { dark?: boolean }) {
   return (
     <a className={`brand brand--official ${dark ? "brand--dark" : ""}`} href="/" aria-label="CR Films — Películas de Controle Solar">
-      <img src={assets.logo} alt="Logo oficial CR Films — Películas de Controle Solar" />
+      <img src={assets.logo} alt="Símbolo oficial CR Films" />
     </a>
   );
 }

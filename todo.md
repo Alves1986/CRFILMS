@@ -16,7 +16,7 @@
 - [x] Criar jornadas claras para Automotivo, PPF, Residencial & Comercial, Detalhamento e Envelopamento.
 - [x] Integrar CTAs de orçamento ao WhatsApp e o perfil oficial do Instagram.
 - [x] Validar a experiência em desktop e mobile, incluindo tipagem e compilação de produção.
-- [ ] Registrar a versão final do projeto para entrega.
+- [x] Registrar a versão final do projeto para entrega.
 
 # Correção de escopo dos serviços
 
@@ -24,3 +24,27 @@
 - [x] Incluir películas para máquinas agrícolas e máquinas florestais como frentes de atendimento.
 - [x] Ajustar os textos de serviços, aplicações e orçamento para películas de vidros e PPF.
 - [x] Revalidar desktop, mobile e compilação após as correções.
+
+# Logo transparente e formulário de orçamento
+
+- [x] Confirmar a transparência real da logo e remover qualquer fundo residual sem depender de blend-mode.
+- [x] Aplicar a versão transparente confirmada no cabeçalho, rodapé e ícone do site.
+- [x] Criar um formulário de orçamento com dados de contato, tipo de aplicação e descrição da necessidade.
+- [x] Montar a mensagem preenchida e encaminhá-la diretamente para o WhatsApp da CR Films.
+- [x] Validar o formulário, a responsividade e a compilação de produção.
+
+# Full-stack e armazenamento de arquivos
+
+- [x] Converter o projeto para a estrutura full-stack com banco de dados e armazenamento seguro.
+- [x] Definir os campos e os limites de anexos para o pedido de orçamento.
+- [x] Adicionar seleção, envio e prévia de imagens ao formulário de orçamento.
+- [x] Vincular os arquivos enviados à solicitação de orçamento e expor os links no WhatsApp.
+- [x] Validar o upload, os estados de erro e o fluxo completo em desktop e mobile.
+
+# Comparador de película na hero
+
+- [x] Analisar a referência de comparação antes e depois e adaptar o efeito à direção visual da CR Films.
+- [x] Criar duas imagens coerentes do mesmo veículo em estúdio, com e sem película nos vidros.
+- [x] Substituir a imagem estática da hero por um comparador interativo acessível.
+- [x] Validar o comparador em desktop e mobile e salvar a nova versão do projeto.
+- [x] Garantir a acessibilidade do comparador com controle nativo por teclado, texto associado e foco visível.

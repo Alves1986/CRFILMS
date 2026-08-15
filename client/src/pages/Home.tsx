@@ -6,7 +6,6 @@
 import {
   ArrowDownRight,
   ArrowUpRight,
-  Check,
   ChevronDown,
   Crosshair,
   MapPin,
@@ -15,13 +14,16 @@ import {
   ShieldCheck,
   Sun,
 } from "lucide-react";
+import { QuoteForm } from "@/components/QuoteForm";
+import { useState } from "react";
 
 const WHATSAPP = "https://wa.me/5542991489798?text=Ol%C3%A1%2C%20quero%20um%20or%C3%A7amento%20para%20a%20CR%20Films.";
 const INSTAGRAM = "https://www.instagram.com/crfilmsoficial_/";
 
 const assets = {
-  logo: "/manus-storage/cr-films-logo-restaurada_437e9c1b.png",
-  hero: "/manus-storage/cr-films-hero-automotivo_5fec1d4b.jpg",
+  logo: "/manus-storage/cr-films-logo-vetorial_78e0e4b2.svg",
+  heroStudioTinted: "/manus-storage/cr-films-hero-studio-com-pelicula_882e5418.jpg",
+  heroStudioClear: "/manus-storage/cr-films-hero-studio-sem-pelicula_b8e73f79.png",
   ppf: "/manus-storage/cr-films-ppf-macro_0bb47cb6.jpg",
   arquitetura: "/manus-storage/cr-films-arquitetura_034c70f6.jpg",
   maquinas: "/manus-storage/cr-films-maquinas_cc35b2d3.jpg",
@@ -38,19 +40,35 @@ const services = [
 function Brand() {
   return (
     <a className="brand brand--official site-brand" href="#inicio" aria-label="CR Films — Películas de Controle Solar">
-      <img src={assets.logo} alt="Logo oficial CR Films — Películas de Controle Solar" />
-      <span className="site-brand__spec" aria-hidden="true"><b>CR FILMS</b><small>CONTROLE SOLAR</small></span>
+      <img src={assets.logo} alt="CR Films — Películas de Controle Solar" />
     </a>
   );
 }
 
 function QuoteButton({ label = "Pedir orçamento", subtle = false }: { label?: string; subtle?: boolean }) {
   return (
-    <a className={`site-quote ${subtle ? "site-quote--subtle" : ""}`} href={WHATSAPP} target="_blank" rel="noreferrer">
+    <a className={`site-quote ${subtle ? "site-quote--subtle" : ""}`} href="#orcamento">
       <MessageCircle size={17} />
       <span>{label}</span>
       <ArrowUpRight size={17} />
     </a>
+  );
+}
+
+function HeroFilmComparator() {
+  const [position, setPosition] = useState(54);
+
+  return (
+    <div className="hero-compare" aria-label="Comparador de película automotiva antes e depois">
+      <img className="hero-compare__image hero-compare__image--clear" src={assets.heroStudioClear} alt="Carro azul em estúdio, sem película nos vidros" />
+      <div className="hero-compare__tinted" style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }} aria-hidden="true">
+        <img className="hero-compare__image" src={assets.heroStudioTinted} alt="" />
+      </div>
+      <div className="hero-compare__labels" aria-hidden="true"><span>COM PELÍCULA</span><span>SEM PELÍCULA</span></div>
+      <div className="hero-compare__divider" style={{ left: `${position}%` }} aria-hidden="true"><i /><b>↔</b></div>
+      <label className="hero-compare__control"><span className="sr-only">Movimente para comparar o carro com e sem película</span><input type="range" min="8" max="92" value={position} onChange={(event) => setPosition(Number(event.target.value))} aria-label="Comparar carro com e sem película" aria-describedby="hero-compare-instruction" aria-valuetext={`${position}% com película visível`} /></label>
+      <p className="hero-compare__instruction" id="hero-compare-instruction">ARRASTE PARA APLICAR A PELÍCULA</p>
+    </div>
   );
 }
 
@@ -65,7 +83,7 @@ export default function Home() {
           <a href="#trabalhos">Aplicações</a>
           <a href="#contato">Contato</a>
         </nav>
-        <a href={WHATSAPP} target="_blank" rel="noreferrer" className="site-nav__quote">Orçamento <ArrowUpRight size={15} /></a>
+        <a href="#orcamento" className="site-nav__quote">Orçamento <ArrowUpRight size={15} /></a>
       </header>
 
       <main>
@@ -81,7 +99,7 @@ export default function Home() {
             </div>
           </div>
           <div className="site-hero__media">
-            <img src={assets.hero} alt="SUV premium com película automotiva escura em estúdio" />
+            <HeroFilmComparator />
             <div className="site-hero__overlay" />
             <div className="site-hero__caption"><span>Películas automotivas</span><b>PROTEÇÃO · ESTILO · CONFORTO</b></div>
             <div className="site-hero__stamp"><Crosshair size={17} /><span>ACABAMENTO<br />SOB MEDIDA</span></div>
@@ -100,7 +118,7 @@ export default function Home() {
             {services.map((service) => {
               const Icon = service.icon;
               return (
-                <a className="site-service" href={WHATSAPP} target="_blank" rel="noreferrer" key={service.number}>
+                <a className="site-service" href="#orcamento" key={service.number}>
                   <div className="site-service__meta"><span>{service.number}</span><Icon size={20} strokeWidth={1.5} /></div>
                   <h3>{service.title}</h3>
                   <p>{service.description}</p>
@@ -130,7 +148,7 @@ export default function Home() {
             <p className="eyebrow">DO VOLANTE À JANELA</p>
             <h2>Controle de luz.<br /><em>Presença no ambiente.</em></h2>
             <p>Películas para projetos residenciais e comerciais que pedem conforto, privacidade e melhor experiência nos espaços de vidro.</p>
-            <a href={WHATSAPP} target="_blank" rel="noreferrer" className="site-text-link">Falar sobre meu ambiente <ArrowUpRight size={17} /></a>
+            <a href="#orcamento" className="site-text-link">Falar sobre meu ambiente <ArrowUpRight size={17} /></a>
           </div>
           <div className="site-architecture__media"><img src={assets.arquitetura} alt="Fachada residencial moderna com grandes superfícies de vidro" /><span>RESIDENCIAL · COMERCIAL</span></div>
         </section>
@@ -143,6 +161,16 @@ export default function Home() {
             <h2>Seu próximo<br /><em>acabamento</em> começa<br />em uma conversa.</h2>
             <QuoteButton label="Chamar no WhatsApp" subtle />
           </article>
+        </section>
+
+        <section className="site-form-section" id="orcamento">
+          <div className="site-form-section__intro">
+            <p className="eyebrow">ORÇAMENTO DIRETO</p>
+            <h2>Conte o que<br /><em>você precisa.</em></h2>
+            <p>Preencha as informações essenciais. Ao enviar, a solicitação já chega organizada no WhatsApp da CR Films.</p>
+            <div className="site-form-section__signal"><span>01</span><i />RESPOSTA PELO WHATSAPP</div>
+          </div>
+          <QuoteForm />
         </section>
 
         <section className="site-contact">
