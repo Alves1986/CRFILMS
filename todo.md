@@ -57,4 +57,4 @@
 - [x] Revisar a continuidade visual e comercial do site após as correções da hero.
 - [x] Validar desktop, mobile e compilação antes de registrar a nova versão.
 - [x] Fazer uma revisão explícita da continuidade visual e comercial após as correções da hero, documentando os pontos conferidos e aplicando ajustes se necessário.
-- [ ] Salvar um novo checkpoint após a validação final e atualizar o acompanhamento da versão entregue.
+- [x] Salvar um novo checkpoint após a validação final e atualizar o acompanhamento da versão entregue.
