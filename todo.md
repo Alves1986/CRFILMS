@@ -74,4 +74,4 @@
 - [x] Validar acessibilidade, comportamento em desktop/mobile, testes e compilação antes do novo checkpoint.
 - [x] Validar o card/modal de orçamento aberto em desktop e mobile, confirmando abertura por CTA, foco visível, navegação por teclado, fechamento por ESC/overlay e rolagem interna.
 - [x] Executar uma verificação interativa do fluxo completo do modal até a abertura do WhatsApp após envio válido.
-- [ ] Salvar um novo checkpoint após validar visual e funcionalmente o modal de orçamento.
+- [x] Salvar um novo checkpoint após validar visual e funcionalmente o modal de orçamento.
