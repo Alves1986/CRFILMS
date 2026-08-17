@@ -15,7 +15,7 @@ import {
   Sun,
 } from "lucide-react";
 import { QuoteForm } from "@/components/QuoteForm";
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 
 const WHATSAPP = "https://wa.me/5542991489798?text=Ol%C3%A1%2C%20quero%20um%20or%C3%A7amento%20para%20a%20CR%20Films.";
 const INSTAGRAM = "https://www.instagram.com/crfilmsoficial_/";
@@ -56,17 +56,22 @@ function QuoteButton({ label = "Pedir orçamento", subtle = false }: { label?: s
 }
 
 function HeroFilmComparator() {
-  const [position, setPosition] = useState(54);
+  const [position, setPosition] = useState(50);
+  const revealMask = position === 0
+    ? "linear-gradient(90deg, transparent 0, transparent 100%)"
+    : position === 100
+      ? "linear-gradient(90deg, #000 0, #000 100%)"
+      : `linear-gradient(90deg, #000 0, #000 calc(${position}% - 26px), transparent calc(${position}% + 26px), transparent 100%)`;
 
   return (
     <div className="hero-compare" aria-label="Comparador de película automotiva antes e depois">
       <img className="hero-compare__image hero-compare__image--clear" src={assets.heroStudioClear} alt="Carro azul em estúdio, sem película nos vidros" />
-      <div className="hero-compare__tinted" style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }} aria-hidden="true">
+      <div className="hero-compare__tinted" style={{ maskImage: revealMask, WebkitMaskImage: revealMask } as CSSProperties} aria-hidden="true">
         <img className="hero-compare__image" src={assets.heroStudioTinted} alt="" />
       </div>
       <div className="hero-compare__labels" aria-hidden="true"><span>COM PELÍCULA</span><span>SEM PELÍCULA</span></div>
       <div className="hero-compare__divider" style={{ left: `${position}%` }} aria-hidden="true"><i /><b>↔</b></div>
-      <label className="hero-compare__control"><span className="sr-only">Movimente para comparar o carro com e sem película</span><input type="range" min="8" max="92" value={position} onChange={(event) => setPosition(Number(event.target.value))} aria-label="Comparar carro com e sem película" aria-describedby="hero-compare-instruction" aria-valuetext={`${position}% com película visível`} /></label>
+      <label className="hero-compare__control"><span className="sr-only">Movimente para comparar o carro com e sem película</span><input type="range" min="0" max="100" step="1" value={position} onChange={(event) => setPosition(Number(event.target.value))} aria-label="Comparar carro com e sem película" aria-describedby="hero-compare-instruction" aria-valuetext={`${position}% com película visível`} /></label>
       <p className="hero-compare__instruction" id="hero-compare-instruction">ARRASTE PARA APLICAR A PELÍCULA</p>
     </div>
   );
@@ -91,8 +96,8 @@ export default function Home() {
           <div className="site-hero__rail" aria-hidden="true"><span>01</span><i /><span>05</span></div>
           <div className="site-hero__copy">
             <p className="eyebrow">PELÍCULAS DE VIDRO · PPF · VEÍCULOS · MÁQUINAS</p>
-            <h1>O <em>sol</em> entra.<br />O desconforto<br />não precisa.</h1>
-            <p className="site-hero__intro">Películas de vidro e PPF para quem procura proteção solar, conforto e presença — do seu carro ao seu ambiente ou máquina.</p>
+            <h1>Proteção solar.<br /><em>Conforto</em><br />sob medida.</h1>
+            <p className="site-hero__intro">Películas de vidro e PPF para proteger seu carro, sua máquina ou seu ambiente com a solução certa para cada rotina.</p>
             <div className="site-hero__actions">
               <QuoteButton label="Falar com especialista" />
               <a href="#solucoes" className="site-text-link">Conheça as soluções <ArrowDownRight size={17} /></a>

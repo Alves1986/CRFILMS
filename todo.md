@@ -48,3 +48,13 @@
 - [x] Substituir a imagem estática da hero por um comparador interativo acessível.
 - [x] Validar o comparador em desktop e mobile e salvar a nova versão do projeto.
 - [x] Garantir a acessibilidade do comparador com controle nativo por teclado, texto associado e foco visível.
+
+# Correções da hero e continuidade comercial
+
+- [x] Eliminar o corte do veículo no comparador, permitindo transição completa de borda a borda.
+- [x] Reenquadrar a hero para preservar o veículo inteiro no mobile sem ocultar a composição.
+- [x] Substituir a chamada atual por uma mensagem coerente com películas de controle solar e PPF.
+- [x] Revisar a continuidade visual e comercial do site após as correções da hero.
+- [x] Validar desktop, mobile e compilação antes de registrar a nova versão.
+- [x] Fazer uma revisão explícita da continuidade visual e comercial após as correções da hero, documentando os pontos conferidos e aplicando ajustes se necessário.
+- [ ] Salvar um novo checkpoint após a validação final e atualizar o acompanhamento da versão entregue.
