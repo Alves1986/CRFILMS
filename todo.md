@@ -75,3 +75,10 @@
 - [x] Validar o card/modal de orçamento aberto em desktop e mobile, confirmando abertura por CTA, foco visível, navegação por teclado, fechamento por ESC/overlay e rolagem interna.
 - [x] Executar uma verificação interativa do fluxo completo do modal até a abertura do WhatsApp após envio válido.
 - [x] Salvar um novo checkpoint após validar visual e funcionalmente o modal de orçamento.
+
+# Envio ao GitHub
+
+- [ ] Verificar a integração GitHub e definir o repositório de destino.
+- [ ] Exportar a versão validada do projeto para o repositório selecionado.
+- [ ] Confirmar o link do repositório e registrar a conclusão do envio.
+- [ ] Criar um repositório privado exclusivo da CR Films, sem reutilizar projetos existentes.
