@@ -1,12 +1,13 @@
 /**
  * ESTILO CR FILMS — Impacto Visual / Precisão em Movimento
  * Página institucional: grafite técnico, contraste editorial e Azul Polar usado como sinal de conversão.
- * Cada seção parte de uma composição assimétrica e conduz ao orçamento no WhatsApp.
+ * Cada seção parte de uma composição assimétrica e conduz ao formulário de orçamento.
  */
 import {
   ArrowDownRight,
   ArrowUpRight,
   ChevronDown,
+  ClipboardList,
   Crosshair,
   MapPin,
   MessageCircle,
@@ -14,10 +15,9 @@ import {
   ShieldCheck,
   Sun,
 } from "lucide-react";
-import { QuoteForm } from "@/components/QuoteForm";
+import { QuoteDialog } from "@/components/QuoteDialog";
 import { useState, type CSSProperties } from "react";
 
-const WHATSAPP = "https://wa.me/5542991489798?text=Ol%C3%A1%2C%20quero%20um%20or%C3%A7amento%20para%20a%20CR%20Films.";
 const INSTAGRAM = "https://www.instagram.com/crfilmsoficial_/";
 
 const assets = {
@@ -45,13 +45,13 @@ function Brand() {
   );
 }
 
-function QuoteButton({ label = "Pedir orçamento", subtle = false }: { label?: string; subtle?: boolean }) {
+function QuoteButton({ label = "Pedir orçamento", subtle = false, onRequestQuote }: { label?: string; subtle?: boolean; onRequestQuote: () => void }) {
   return (
-    <a className={`site-quote ${subtle ? "site-quote--subtle" : ""}`} href="#orcamento">
+    <button type="button" className={`site-quote ${subtle ? "site-quote--subtle" : ""}`} onClick={onRequestQuote}>
       <MessageCircle size={17} />
       <span>{label}</span>
       <ArrowUpRight size={17} />
-    </a>
+    </button>
   );
 }
 
@@ -78,6 +78,20 @@ function HeroFilmComparator() {
 }
 
 export default function Home() {
+  const [isQuoteDialogOpen, setIsQuoteDialogOpen] = useState(
+    () => new URLSearchParams(window.location.search).get("orcamento") === "1",
+  );
+
+  const setQuoteDialogOpen = (open: boolean) => {
+    setIsQuoteDialogOpen(open);
+    const url = new URL(window.location.href);
+    if (open) url.searchParams.set("orcamento", "1");
+    else url.searchParams.delete("orcamento");
+    window.history.replaceState({}, "", url);
+  };
+
+  const openQuoteDialog = () => setQuoteDialogOpen(true);
+
   return (
     <div className="site-shell">
       <header className="site-nav">
@@ -88,7 +102,7 @@ export default function Home() {
           <a href="#trabalhos">Aplicações</a>
           <a href="#contato">Contato</a>
         </nav>
-        <a href="#orcamento" className="site-nav__quote">Orçamento <ArrowUpRight size={15} /></a>
+        <button type="button" onClick={openQuoteDialog} className="site-nav__quote">Orçamento <ArrowUpRight size={15} /></button>
       </header>
 
       <main>
@@ -99,7 +113,7 @@ export default function Home() {
             <h1>Proteção solar.<br /><em>Conforto</em><br />sob medida.</h1>
             <p className="site-hero__intro">Películas de vidro e PPF para proteger seu carro, sua máquina ou seu ambiente com a solução certa para cada rotina.</p>
             <div className="site-hero__actions">
-              <QuoteButton label="Falar com especialista" />
+              <QuoteButton label="Preencher formulário" onRequestQuote={openQuoteDialog} />
               <a href="#solucoes" className="site-text-link">Conheça as soluções <ArrowDownRight size={17} /></a>
             </div>
           </div>
@@ -123,12 +137,12 @@ export default function Home() {
             {services.map((service) => {
               const Icon = service.icon;
               return (
-                <a className="site-service" href="#orcamento" key={service.number}>
+                <button type="button" className="site-service" onClick={openQuoteDialog} key={service.number}>
                   <div className="site-service__meta"><span>{service.number}</span><Icon size={20} strokeWidth={1.5} /></div>
                   <h3>{service.title}</h3>
                   <p>{service.description}</p>
                   <ArrowUpRight className="site-service__arrow" size={20} />
-                </a>
+                </button>
               );
             })}
           </div>
@@ -153,7 +167,7 @@ export default function Home() {
             <p className="eyebrow">DO VOLANTE À JANELA</p>
             <h2>Controle de luz.<br /><em>Presença no ambiente.</em></h2>
             <p>Películas para projetos residenciais e comerciais que pedem conforto, privacidade e melhor experiência nos espaços de vidro.</p>
-            <a href="#orcamento" className="site-text-link">Falar sobre meu ambiente <ArrowUpRight size={17} /></a>
+            <button type="button" onClick={openQuoteDialog} className="site-text-link">Falar sobre meu ambiente <ArrowUpRight size={17} /></button>
           </div>
           <div className="site-architecture__media"><img src={assets.arquitetura} alt="Fachada residencial moderna com grandes superfícies de vidro" /><span>RESIDENCIAL · COMERCIAL</span></div>
         </section>
@@ -164,29 +178,21 @@ export default function Home() {
           <article className="site-work-card site-work-card--contact" id="contato">
             <p className="eyebrow">PRÓXIMO PASSO</p>
             <h2>Seu próximo<br /><em>acabamento</em> começa<br />em uma conversa.</h2>
-            <QuoteButton label="Chamar no WhatsApp" subtle />
+            <QuoteButton label="Preencher formulário" subtle onRequestQuote={openQuoteDialog} />
           </article>
-        </section>
-
-        <section className="site-form-section" id="orcamento">
-          <div className="site-form-section__intro">
-            <p className="eyebrow">ORÇAMENTO DIRETO</p>
-            <h2>Conte o que<br /><em>você precisa.</em></h2>
-            <p>Preencha as informações essenciais. Ao enviar, a solicitação já chega organizada no WhatsApp da CR Films.</p>
-            <div className="site-form-section__signal"><span>01</span><i />RESPOSTA PELO WHATSAPP</div>
-          </div>
-          <QuoteForm />
         </section>
 
         <section className="site-contact">
           <div><p className="eyebrow">ATENDIMENTO LOCAL</p><h2>Telêmaco Borba,<br /><em>Paraná.</em></h2></div>
           <div className="site-contact__details">
-            <a href={WHATSAPP} target="_blank" rel="noreferrer"><MessageCircle size={18} /><span><b>WhatsApp</b>42 99148-9798</span><ArrowUpRight size={17} /></a>
+            <button type="button" onClick={openQuoteDialog}><ClipboardList size={18} /><span><b>Solicite um orçamento</b>Preencha o formulário</span><ArrowUpRight size={17} /></button>
             <a href={INSTAGRAM} target="_blank" rel="noreferrer"><MoveUpRight size={18} /><span><b>Instagram</b>@crfilmsoficial_</span><ArrowUpRight size={17} /></a>
             <span className="site-contact__location"><MapPin size={18} /><span><b>Base de atendimento</b>Telêmaco Borba · PR</span></span>
           </div>
         </section>
       </main>
+
+      <QuoteDialog open={isQuoteDialogOpen} onOpenChange={setQuoteDialogOpen} />
 
       <footer className="site-footer">
         <Brand />

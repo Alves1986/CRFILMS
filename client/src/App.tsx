@@ -5,16 +5,12 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
-import MockupPage from "./components/MockupPage";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
       <Route path={"/"} component={Home} />
-      <Route path={"/mockup-impacto"}>{() => <MockupPage variant="impacto" />}</Route>
-      <Route path={"/mockup-solucoes"}>{() => <MockupPage variant="solucoes" />}</Route>
-      <Route path={"/mockup-processo"}>{() => <MockupPage variant="processo" />}</Route>
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

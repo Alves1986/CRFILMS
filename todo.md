@@ -58,3 +58,20 @@
 - [x] Validar desktop, mobile e compilação antes de registrar a nova versão.
 - [x] Fazer uma revisão explícita da continuidade visual e comercial após as correções da hero, documentando os pontos conferidos e aplicando ajustes se necessário.
 - [x] Salvar um novo checkpoint após a validação final e atualizar o acompanhamento da versão entregue.
+
+# Centralização de solicitações de orçamento
+
+- [x] Mapear todos os CTAs e links que hoje levam diretamente ao WhatsApp.
+- [x] Direcionar cada CTA de orçamento ao formulário de solicitação, preservando a navegação acessível.
+- [x] Manter o WhatsApp como etapa final, acionada somente após o envio válido do formulário preenchido.
+- [x] Validar o fluxo em desktop e mobile, incluindo tipagem, testes e compilação.
+
+# Formulário de orçamento em card
+
+- [x] Transformar o formulário de orçamento em um card/modal aberto sob demanda pelos CTAs.
+- [x] Conectar todos os CTAs de orçamento ao card, sem navegação até o final da página.
+- [x] Remover a seção fixa de formulário do fim da página e preservar a conclusão no WhatsApp após envio válido.
+- [x] Validar acessibilidade, comportamento em desktop/mobile, testes e compilação antes do novo checkpoint.
+- [x] Validar o card/modal de orçamento aberto em desktop e mobile, confirmando abertura por CTA, foco visível, navegação por teclado, fechamento por ESC/overlay e rolagem interna.
+- [x] Executar uma verificação interativa do fluxo completo do modal até a abertura do WhatsApp após envio válido.
+- [ ] Salvar um novo checkpoint após validar visual e funcionalmente o modal de orçamento.

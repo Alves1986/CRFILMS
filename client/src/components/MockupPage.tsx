@@ -8,10 +8,10 @@ import {
   ArrowUpRight,
   Check,
   ChevronLeft,
+  ClipboardList,
   CircleGauge,
   Crosshair,
   MapPin,
-  MessageCircle,
   ShieldCheck,
   Sun,
 } from "lucide-react";
@@ -21,9 +21,6 @@ type MockupVariant = "impacto" | "solucoes" | "processo";
 type MockupPageProps = {
   variant: MockupVariant;
 };
-
-const WHATSAPP =
-  "https://wa.me/5542991489798?text=Ol%C3%A1%2C%20quero%20um%20or%C3%A7amento%20para%20a%20CR%20Films.";
 
 const assets = {
   hero: "/manus-storage/cr-films-hero-automotivo_5fec1d4b.jpg",
@@ -86,11 +83,11 @@ function TopBar({ light = false }: { light?: boolean }) {
   );
 }
 
-function WhatsAppButton({ inverted = false }: { inverted?: boolean }) {
+function QuoteFormButton({ inverted = false }: { inverted?: boolean }) {
   return (
-    <a href={WHATSAPP} target="_blank" rel="noreferrer" className={`quote-button ${inverted ? "quote-button--inverted" : ""}`}>
-      <MessageCircle size={18} />
-      <span>Falar com especialista</span>
+    <a href="/#orcamento" className={`quote-button ${inverted ? "quote-button--inverted" : ""}`}>
+      <ClipboardList size={18} />
+      <span>Preencher formulário</span>
       <ArrowUpRight size={17} />
     </a>
   );
@@ -110,7 +107,7 @@ function ImpactoMockup() {
             <h1>O <em>sol</em> entra.<br />O desconforto<br />não precisa.</h1>
             <p className="impact-hero__intro">Películas de vidro e PPF para quem procura proteção e conforto — do seu carro ao seu ambiente ou máquina.</p>
             <div className="impact-hero__actions">
-              <WhatsAppButton />
+              <QuoteFormButton />
               <a href="#servicos" className="text-link">Conheça as soluções <ArrowDownRight size={17} /></a>
             </div>
           </div>
@@ -147,7 +144,7 @@ function ImpactoMockup() {
           <div>
             <p className="eyebrow">PROTEÇÃO INVISÍVEL. PRESENÇA TOTAL.</p>
             <h2>Seu próximo<br /><em>acabamento</em> começa<br />em uma conversa.</h2>
-            <WhatsAppButton />
+            <QuoteFormButton />
           </div>
         </section>
       </main>
@@ -166,7 +163,7 @@ function SolucoesMockup() {
             <p className="eyebrow eyebrow--blue">CONTROLE SOLAR, DO SEU JEITO</p>
             <h1>Uma película.<br /><em>Duas formas</em> de<br />sentir a diferença.</h1>
             <p>Do volante à janela da sua casa, a CR Films trata proteção, conforto e estética como uma única decisão bem feita.</p>
-            <WhatsAppButton inverted />
+            <QuoteFormButton inverted />
           </div>
           <div className="solutions-hero__visual">
             <div className="solutions-hero__auto"><img src={assets.hero} alt="Veículo com película premium" /></div>
@@ -178,10 +175,10 @@ function SolucoesMockup() {
 
         <section className="solution-path">
           <div className="solution-path__label"><span>ESCOLHA SEU CONTEXTO</span><i /></div>
-          <a href={WHATSAPP} target="_blank" rel="noreferrer" className="solution-path__row">
+          <a href="/#orcamento" className="solution-path__row">
             <span className="path-number">01</span><div><h2>Automotivo</h2><p>Películas de vidro e PPF com atenção total à proteção e à presença do seu carro.</p></div><ArrowUpRight size={28} />
           </a>
-          <a href={WHATSAPP} target="_blank" rel="noreferrer" className="solution-path__row solution-path__row--dark">
+          <a href="/#orcamento" className="solution-path__row solution-path__row--dark">
             <span className="path-number">02</span><div><h2>Residencial & comercial</h2><p>Controle de luz e conforto para fachadas, interiores e rotina.</p></div><ArrowUpRight size={28} />
           </a>
         </section>
@@ -198,7 +195,7 @@ function SolucoesMockup() {
           </div>
         </section>
       </main>
-      <footer className="mockup-footer"><Brand /><span><MapPin size={14} /> Telêmaco Borba · PR</span><WhatsAppButton /></footer>
+      <footer className="mockup-footer"><Brand /><span><MapPin size={14} /> Telêmaco Borba · PR</span><QuoteFormButton /></footer>
     </div>
   );
 }
@@ -214,7 +211,7 @@ function ProcessoMockup() {
           <div className="process-hero__copy">
             <p className="eyebrow">PRECISÃO QUE SE VÊ DE PERTO</p>
             <p>Uma oficina de proteção para quem não aceita que o visual, o conforto ou o cuidado fiquem para depois.</p>
-            <WhatsAppButton />
+            <QuoteFormButton />
           </div>
           <div className="process-hero__counter"><span>03</span><small>ETAPAS PARA<br />O RESULTADO CERTO</small></div>
         </section>
@@ -231,7 +228,7 @@ function ProcessoMockup() {
         <section className="process-gallery">
           <div className="process-gallery__large"><img src={assets.ppf} alt="Aplicação de PPF em detalhe" /><span>PROTEÇÃO DE PINTURA</span></div>
           <div className="process-gallery__small"><img src={assets.arquitetura} alt="Projeto arquitetônico com película de controle solar" /><span>CONFORTO ARQUITETÔNICO</span></div>
-          <div className="process-gallery__cta"><p>Agende seu horário e dê um upgrade no visual e proteção do seu carro.</p><WhatsAppButton /></div>
+          <div className="process-gallery__cta"><p>Agende seu horário e dê um upgrade no visual e proteção do seu carro.</p><QuoteFormButton /></div>
         </section>
       </main>
       <footer className="mockup-footer"><Brand /><span>INSTAGRAM @CRFILMSOFICIAL_</span><span>42 99148-9798</span></footer>

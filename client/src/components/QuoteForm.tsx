@@ -1,8 +1,8 @@
 import { trpc } from "@/lib/trpc";
+import { buildQuoteWhatsAppUrl } from "@/lib/quoteMessage";
 import { ArrowUpRight, Check, ImagePlus, Loader2, MessageCircle, X } from "lucide-react";
 import { useRef, useState, type ChangeEvent, type FormEvent } from "react";
 
-const WHATSAPP_NUMBER = "5542991489798";
 const MAX_ATTACHMENTS = 4;
 const MAX_ATTACHMENT_BYTES = 5 * 1024 * 1024;
 const ALLOWED_TYPES = ["image/jpeg", "image/png", "image/webp"];
@@ -77,23 +77,15 @@ export function QuoteForm() {
           })
         : [];
 
-      const attachmentLines = uploaded.length
-        ? ["", "Fotos para referência:", ...uploaded.map((attachment, index) => `${index + 1}. ${window.location.origin}${attachment.url}`)]
-        : [];
-      const message = [
-        "Olá, CR Films! Gostaria de solicitar um orçamento.",
-        "",
-        `Nome: ${value("nome")}`,
-        `WhatsApp: ${value("telefone")}`,
-        `Serviço de interesse: ${value("servico")}`,
-        `Veículo, máquina ou ambiente: ${value("aplicacao") || "Não informado"}`,
-        `Cidade: ${value("cidade") || "Não informado"}`,
-        `Prazo desejado: ${value("prazo") || "Não informado"}`,
-        "",
-        `Necessidade: ${value("necessidade")}`,
-        ...attachmentLines,
-      ].join("\n");
-      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+      const url = buildQuoteWhatsAppUrl({
+        nome: value("nome"),
+        telefone: value("telefone"),
+        servico: value("servico"),
+        aplicacao: value("aplicacao"),
+        cidade: value("cidade"),
+        prazo: value("prazo"),
+        necessidade: value("necessidade"),
+      }, uploaded.map(attachment => attachment.url), window.location.origin);
       if (whatsappWindow) {
         whatsappWindow.location.href = url;
       } else {

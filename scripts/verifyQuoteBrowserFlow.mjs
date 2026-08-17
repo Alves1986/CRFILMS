@@ -1,4 +1,11 @@
-const [target] = await (await fetch("http://127.0.0.1:9222/json")).json();
+const cdpBase = "http://127.0.0.1:9222";
+const testUrl = "http://localhost:3000/?orcamento=1";
+const targets = await (await fetch(`${cdpBase}/json`)).json();
+let target = targets.find(candidate => candidate.type === "page" && candidate.url.startsWith("http://localhost:3000"));
+
+if (!target) {
+  target = await (await fetch(`${cdpBase}/json/new?${encodeURIComponent(testUrl)}`, { method: "PUT" })).json();
+}
 
 if (!target?.webSocketDebuggerUrl) {
   throw new Error("Nenhuma página de teste com DevTools remoto foi encontrada.");
@@ -19,6 +26,8 @@ socket.addEventListener("message", event => {
     pending.delete(message.id);
   }
 });
+
+await new Promise(resolve => setTimeout(resolve, 900));
 
 function evaluate(expression, awaitPromise = true) {
   const id = nextId++;
